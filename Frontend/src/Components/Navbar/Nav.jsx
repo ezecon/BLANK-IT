@@ -25,7 +25,6 @@ export default function Nav() {
                 <a href="">Blog</a>
                 <a href="">Contact</a>
                 <a href="">Address</a>
-                
             </nav>
             <div className='logo-container'>
                 <img className='logo rounded-full' src="1.jpg" alt="" />

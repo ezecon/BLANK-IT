@@ -136,33 +136,24 @@
 	}
 }
   
-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+.header{
   transition:  padding 1s ease, background-color 1s ease;
-  background-color: #33333385;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
 }
-header.scrolled{
+.header.scrolled{
   background-color: #333333e5;
   height: 100vh;
 }
-header.scrolled img{
+.scrolled img{
   height: 80vh;
   animation: animationx 4s ease;
 }
-header.scrolled a{
+.scrolled a{
   opacity: 0;
 }
-header.scrolled p{
+.scrolled p{
   opacity: 0;
 }
-header.scrolled .avatar{
+.scrolled .avatar{
   opacity: 0;
 }
 @keyframes animationx{
