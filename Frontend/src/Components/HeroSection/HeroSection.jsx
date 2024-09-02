@@ -36,12 +36,12 @@ export function HeroSection() {
         </div>
       </Carousel>
       <div className=" grid grid-cols-2 absolute inset-0 items-center justify-center p-4 sm:p-8 lg:p-12">
-        <div className={`pl-10 sm:pl-5  text-white text-center lg:text-left montserrat-alternates ${isLoading ? 'scrolled' : 'roll-left'}`}>
+        <div className={`pl-10 sm:pl-5  text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-left'}`}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">DOT-iT</h1>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6 text">Place you can trust the most</p>
           <Button className="bg-[#00000060] text-white px-4 py-2 rounded-md text-sm sm:text-base">PURCHASE NOW</Button>
         </div>
-        <div className={`text-white text-center lg:text-left montserrat-alternates ${isLoading ? 'scrolled' : 'roll-right'}`}>
+        <div className={`text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-op'}`}>
           <div className="discount autoShow">
               <div className="img-container mt-3  sm:mt-10 border rounded-xl">
                   <img src="https://scontent.fcgp27-1.fna.fbcdn.net/v/t39.30808-6/447904043_122152796162229546_3833688701580616768_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeExtfjxeI-fkO9WkJhMMWH1UTRvkKS5MMRRNG-QpLkwxHKhf1CSFozn_DbVEBS1qa_dw_M3_ILlKl3zr4o8prbq&_nc_ohc=H_2bRQ_rEAQQ7kNvgFlodR1&_nc_ht=scontent.fcgp27-1.fna&oh=00_AYBYkgs0mcjGuFzmJQKDHwv7Q9gR_7RZ7yPI4wmq9PTj3w&oe=66DB80E8" alt="Discount 1" />

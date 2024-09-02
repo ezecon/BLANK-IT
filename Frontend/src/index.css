@@ -138,21 +138,22 @@
   
 
 
-.text{
-  overflow: hidden;
-  border-right: 0.15em solid white;
-  white-space:  nowrap;
-  animation: typing 4s steps(28, end) infinite;
-}
-
-@keyframes typing{
-  from{
-    width: 0;
+.text {
+	overflow: hidden;
+	border-right: 0.15em solid white;
+	white-space: nowrap;
+	animation: typing 4s steps(28, end) infinite;
   }
-  to{
-    width: 100%;
+  
+  @keyframes typing {
+	from {
+	  width: 0;
+	}
+	to {
+	  width: 100%;
+	}
   }
-}
+  
 
 /*herosection image*/
 

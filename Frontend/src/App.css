@@ -92,3 +92,15 @@ header{
         transform: translateX(0px);
       }
   }
+  .roll-op{
+    animation: rollOp 3s ease-in-out;
+  }
+
+  @keyframes rollOp{
+    from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+  }
