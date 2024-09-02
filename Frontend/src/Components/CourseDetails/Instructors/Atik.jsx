@@ -16,7 +16,7 @@ export default function Atik() {
         </h1>
       <hr />
       
-        <div className="flex flex-wrap gap-2 text-xs sm:text-sm montserrat-alternates justify-center py-2 underline-offset-4">
+        <div className="flex flex-wrap gap-2 text-xs sm:text-sm montserrat-alternates justify-center py-2 px-1 underline-offset-4">
         <p className="border rounded-lg p-1 bg-[#00000013]"> Department of CSE, BAIUST</p>
         <p className="border rounded-lg p-1 bg-[#00000013]"> Founder of DOT-iT</p>
       </div>
