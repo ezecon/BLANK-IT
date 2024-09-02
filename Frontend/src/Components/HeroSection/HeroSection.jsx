@@ -37,9 +37,15 @@ export function HeroSection() {
       </Carousel>
       <div className=" grid grid-cols-2 absolute inset-0 items-center justify-center p-4 sm:p-8 lg:p-12">
         <div className={`pl-10 sm:pl-5  text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-left'}`}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">DOT-iT</h1>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6 text">Place you can trust the most</p>
-          <Button className="bg-[#00000060] text-white px-4 py-2 rounded-md text-sm sm:text-base">PURCHASE NOW</Button>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              DOT-iT
+            </h1>
+            <p className="text text-xs sm:text-sm md:text-base lg:text-lg mb-6">
+              Place you can trust the most
+            </p>
+            <Button className="bg-black bg-opacity-60 text-white px-3 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
+              PURCHASE NOW
+            </Button>
         </div>
         <div className={`text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-op'}`}>
           <div className="discount autoShow">

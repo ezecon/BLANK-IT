@@ -1,8 +1,6 @@
 
-
-import { HeroSection } from "../HeroSection/HeroSection";
-import AllCourses from "../AllCourses/AllCourses";
 import Nav from "../Navbar/Nav";
+import { Outlet } from "react-router-dom";
 
 
 export default function Main() {
@@ -13,8 +11,7 @@ export default function Main() {
       <Nav/>
       </div>
       <div className="mx-auto max-w-screen-xl mt-10 py-8">
-      <HeroSection />
-      <AllCourses/>
+      <Outlet/>
       </div>
     </div>
   );
