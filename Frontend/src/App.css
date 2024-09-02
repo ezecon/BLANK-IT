@@ -63,3 +63,32 @@ header{
     color: #fff;
   }
   
+  .roll-left{
+    animation: roleLeft 2s ease-in-out;
+  }
+
+  @keyframes roleLeft{
+    from{
+        opacity: 0.3;
+        transform: translateX(-2000px);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0px);
+      }
+  }
+  
+  .roll-right{
+    animation: rollRight 2s ease-in-out;
+  }
+
+  @keyframes rollRight{
+    from{
+        opacity: 0.3;
+        transform: translateX(2000px);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0px);
+      }
+  }
