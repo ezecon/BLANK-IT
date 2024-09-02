@@ -8,21 +8,21 @@ export function HeroSection() {
           <img
             src="2.jpg"
             alt="image 1"
-            className="h-full w-full object-cover object-center rounded-xl"
+            className="h-full w-full object-cover object-center rounded-xl blur-img"
           />
         </div>
         <div className="relative h-64 sm:h-80 md:h-96 lg:h-screen">
           <img
             src="3.jpg"
             alt="image 2"
-            className="h-full w-full object-cover object-center rounded-xl"
+            className="h-full w-full object-cover object-center rounded-xl blur-img"
           />
         </div>
         <div className="relative h-64 sm:h-80 md:h-96 lg:h-screen">
           <img
             src="4.jpg"
             alt="image 3"
-            className="h-full w-full object-cover object-center rounded-xl"
+            className="h-full w-full object-cover object-center rounded-xl blur-img"
           />
         </div>
       </Carousel>

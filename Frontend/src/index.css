@@ -136,62 +136,13 @@
 	}
 }
   
-.header{
-  transition:  padding 1s ease, background-color 1s ease;
-}
-.header.scrolled{
-  background-color: #333333e5;
-  height: 100vh;
-}
-.scrolled img{
-  height: 80vh;
-  animation: animationx 4s ease;
-}
-.scrolled a{
-  opacity: 0;
-}
-.scrolled p{
-  opacity: 0;
-}
-.scrolled .avatar{
-  opacity: 0;
-}
-@keyframes animationx{
-  from{
-    transform: translateX(-2000px);
-  }
-  to{
-    transform: translateX(0px);
-  }
-  
-}
-
-.logo-container{
-  display: flex;
-  align-items: center;
-  transition: transform 1s ese, margin 1s ease;
-}
-
-.logo{
-  height: 60px;
-  transition: height 1s ease, margin 1s ease;
-}
-
-
-.navbar{
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  transition: color 0.3s ease, font-size 0.3s ease;
-  color: #fff;
-}
 
 
 .text{
   overflow: hidden;
   border-right: 0.15em solid white;
   white-space:  nowrap;
-  animation: typing 4s steps(27, end) infinite;
+  animation: typing 4s steps(28, end) infinite;
 }
 
 @keyframes typing{
