@@ -7,6 +7,8 @@ import BasicComputer from "../CourseDetails/BC/BasicComputer";
 import BasicMachineLeaning from "../CourseDetails/BML/BasicMachineLeaning";
 import UnderConstruction from "../UnderConstruction/UnderConstruction";
 import Confirm from "../Confirm/Confirm";
+import Index from "../../Pages/Admin/Index";
+import { Students } from "../../Pages/Admin/Students/Students";
 
 
 const router = createBrowserRouter([
@@ -59,6 +61,16 @@ const router = createBrowserRouter([
                 element:<Confirm/>
             },
 
+        ]
+    },
+    {
+        path:'/admin',
+        element:<Index/>,
+        children:[
+            {
+                path:'',
+                element:<Students/>
+            }
         ]
     }
 ]);
