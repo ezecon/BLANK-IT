@@ -61,9 +61,9 @@ export function Footer() {
         title="Google Map"
       ></iframe>
       <Typography color="blue-gray" className="font-bold text-center montserrat-alternates">
-        &copy; 2024 All Rights Reserved By DOT-iT
+        &copy; 2024 All Rights Reserved By DOT-iT 
       </Typography>
       </div>
     </footer>
-  );
+  );               
 }
