@@ -24,7 +24,7 @@ export default function BasicComputer() {
     });
   };
 
-  const courses = "Basic Machine Learning";
+  const courses = "Basic Computer";
   const handleRegister = async () => {
     const data = {
       name: formData.fullName,
@@ -36,7 +36,7 @@ export default function BasicComputer() {
     };
   
     try {
-      const res = await axios.post(`http://localhost:5000/api/course-purchases`, data, {
+      const res = await axios.post(`https://dot-it-server.vercel.app/api/course-purchases`, data, {
         headers: {
           'Content-Type': 'application/json'
         }

@@ -24,7 +24,7 @@ export default function BasicFrontendDevelopment() {
     });
   };
 
-  const courses = "Basic Machine Learning";
+  const courses = "Basic Frontend Development";
   const handleRegister = async () => {
     const data = {
       name: formData.fullName,
@@ -67,7 +67,7 @@ export default function BasicFrontendDevelopment() {
         <div>
           <div className="pl-5 text-[goldenrod] text-left montserrat-alternates">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Basic Machine Learning
+              Basic Frontend Development
             </h1>
             <p className="text-sm text-[#00000088] mb-6">
               The Basic Machine Learning Course is designed to take you from a beginner to a confident machine learning practitioner, capable of building and deploying intelligent models for a variety of applications.
