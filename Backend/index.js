@@ -1,25 +1,24 @@
 const express = require('express');
-const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const connectDB = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
-
-dotenv.config();
-const PORT = process.env.PORT || 5000;
-connectDB();
+const path = require('path');
 
 const app = express();
+const port = 5000;
 
-app.use(cors({ origin: '*' }));
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use('/api/course-purchases', userRoutes);
+mongoose.connect('mongodb+srv://mdeconozzama:21JcFAxOPQLwJJhY@cluster0.epjlx.mongodb.net/data?retryWrites=true&w=majority&appName=Cluster0', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
 
+app.use('/api/course-purchases', require('./routes/userRoutes'));
 
-module.exports = app;
 
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(port, () => console.log(`Server running on port ${port}`));

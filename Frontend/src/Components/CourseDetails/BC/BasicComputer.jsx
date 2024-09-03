@@ -3,9 +3,11 @@ import { DetailsBFD } from "./DetailsBFD";
 import { useState } from "react";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 export default function BasicComputer() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     number: '',
@@ -36,7 +38,7 @@ export default function BasicComputer() {
     };
   
     try {
-      const res = await axios.post(`https://dot-it-server.vercel.app/api/course-purchases`, data, {
+      const res = await axios.post(`http://localhost:5000/api/course-purchases`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -46,6 +48,7 @@ export default function BasicComputer() {
         // Successful registration
         toast.success("Registration Completed!");
         handleOpen(); // Close the dialog after successful registration
+        navigate(`/confirmation`)
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
