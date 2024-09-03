@@ -142,7 +142,7 @@
 	overflow: hidden;
 	border-right: 0.15em solid white;
 	white-space: nowrap;
-	animation: typing 4s steps(28, end) infinite;
+	animation: typing 4s steps(28) infinite;
   }
   
   @keyframes typing {
@@ -211,5 +211,18 @@
 	}
 	.img-container:hover {
 	  height: 150%;
+	}
+  }
+
+  .rotate{
+	animation: rotate 3s ease-in-out infinite;
+  }
+
+  @keyframes rotate{
+	0%,80%{
+		transform: rotateX(0deg);
+	}
+	100%{
+		transform: rotateX(360deg);
 	}
   }

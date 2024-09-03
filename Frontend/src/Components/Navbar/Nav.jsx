@@ -36,22 +36,23 @@ export default function Nav() {
             setDisplayComponentLeft(
               <div className={`${isLoading ? 'scrolled' : ''}`}>
                    <nav className={`navbar `}>
-                        <a href="">Gallery</a>
-                        <a href="">Blog</a>
-                        <a href="">Contact</a>
-                        <a href="">About</a> 
+                    <Link to=""><p>Home</p></Link>
+                    <Link to="gallery"><p>Gallery</p></Link>
+                    <Link to="blog"><p>Blog</p></Link>
+                    <Link to="contact"><p>Contact</p></Link>
+                    <Link to="about"><p>About</p></Link>
                     </nav>
               </div>
              
             );
             setDisplayComponentRight(
                 <nav className='navbar'>
-                    <p className="cursor-pointer flex gap-1 bg-[#d0d5dd] text-black rounded-lg p-3">
+                    <Link to="all-courses"><p className="cursor-pointer flex gap-1 bg-[#d0d5dd] text-black rounded-lg p-3">
                         All Courses <IoIosArrowUp />
-                    </p>
-                    <p className="cursor-pointer flex gap-1 bg-black text-white rounded-lg p-3">
+                    </p></Link>
+                    <Link to="dashboard"><p className="cursor-pointer flex gap-1 bg-black text-white rounded-lg p-3">
                         Dashboard <MdOutlineDashboard className="text-lg" />
-                    </p>
+                    </p></Link>
                     <Avatar className="avatar" src="econ.jpg" withBorder={true} color="green" alt="avatar" />
                 </nav>
             );

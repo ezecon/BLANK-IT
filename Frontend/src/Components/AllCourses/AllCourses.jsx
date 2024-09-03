@@ -1,6 +1,7 @@
 import { Button } from "@material-tailwind/react";
 import CourseCardBC from "../PhotoCard/CourseCard2";
 import CourseCardBFD from "../PhotoCard/CourseCard1";
+import CourseCardBML from "../PhotoCard/CourseCard3";
 
 
 export default function AllCourses() {
@@ -10,6 +11,7 @@ export default function AllCourses() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
           <CourseCardBC/>
           <CourseCardBFD/>
+          <CourseCardBML/>
       </div>
       <div className=" my-6 flex justify-center items-center"><Button className="bg-[#00000060]">See More</Button></div>
     </div>

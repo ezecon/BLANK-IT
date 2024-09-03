@@ -7,6 +7,8 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 import { TbManFilled } from "react-icons/tb";
+import Atik from "../Instructors/Atik";
+import Econ from "../Instructors/Econ";
 import Instructor from "./Instructor";
  
 export function DetailsBFD() {

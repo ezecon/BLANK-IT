@@ -20,7 +20,7 @@ export default function BasicFrontendDevelopment() {
                 PURCHASE NOW
               </Button>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg px-8">
-                $1000
+              ৳1000 <del className="text-xs">৳2000</del>
               </p>
             </div>
           </div>
@@ -28,6 +28,7 @@ export default function BasicFrontendDevelopment() {
             <p className="border rounded-lg p-1 bg-[#00000013]">Batch-1</p>
             <p className="border rounded-lg p-1 bg-[#00000013]">Total Seat - 100</p>
             <p className="border rounded-lg p-1 bg-[#00000013]">Start From - 1st Oct</p>
+            <p className="border rounded-lg p-1 bg-[#00000013]">Platform - Online</p>
           </div>
         </div>
         <div className="p-3">
