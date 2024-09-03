@@ -52,8 +52,7 @@ export function Footer() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2  justify-center items-center">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d513.5183612648852!2d91.1819847968567!3d23.462529552351516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1725348837249!5m2!1sen!2sbd"
-        width="500"
-        height="200"
+        className="w-full"
         style={{ border: 0 }}
         allowFullScreen=""
         loading="lazy"
