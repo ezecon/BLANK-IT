@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  serial: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
   },
   number: {
+    type: String,
+    required: true,
+  },
+  wNumber: {
     type: String,
     required: true,
   },
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    required: true,
+    required: false,
   },
   date: {
     type: Date,

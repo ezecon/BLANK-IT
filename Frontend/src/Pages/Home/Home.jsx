@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div>
         <HeroSection />
+        <Count/>
         <AllCourses/>
         <Gallery/>
-        <Count/>
         <Footer/>
     </div>
   )

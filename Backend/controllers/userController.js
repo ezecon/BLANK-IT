@@ -1,8 +1,5 @@
 const User = require('../models/userModel');
 
-// @desc    Get all users
-// @route   GET /api/users
-// @access  Public
 const getUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -12,20 +9,12 @@ const getUsers = async (req, res) => {
   }
 };
 
-// @desc    Create a new user
-// @route   POST /api/users
-// @access  Public
 const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  
-  if (!name || !email || !password) {
-    return res.status(400).json({ message: 'Please provide all required fields' });
-  }
-
+  const { name,number,wNumber, email, address, course } = req.body;
   try {
-    const newUser = new User({ name, email, password });
+    const newUser = new User({ name,number,wNumber, email, address, course });
     await newUser.save();
-    res.status(201).json(newUser);
+    res.status(200).json(newUser);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

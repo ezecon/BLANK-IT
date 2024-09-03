@@ -1,24 +1,77 @@
-import { Button } from "@material-tailwind/react";
+import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input } from "@material-tailwind/react";
 import { DetailsBFD } from "./DetailsBFD";
+import { useState } from "react";
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export default function BasicMachineLeaning() {
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    number: '',
+    whatsappNumber: '',
+    email: '',
+    address: '',
+    photo: null,
+  });
+
+  const handleOpen = () => setOpen(!open);
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value,
+    });
+  };
+
+  const courses = "Basic Machine Learning";
+  const handleRegister = async () => {
+    const data = {
+      name: formData.fullName,
+      number: formData.number,
+      wNumber: formData.whatsappNumber,
+      email: formData.email,
+      address: formData.address,
+      course: courses,
+      /*if (formData.photo) {
+      photo: formData.photo;
+    }*/
+    };
+  
+    try {
+      const res = await axios.post(`https://dot-it-server.vercel.app/api/course-purchases`, data, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (res.status === 200) {
+        toast.success("Registration Completed!");
+        handleOpen(); // Close the dialog after successful registration
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Registration Failed. Please try again.");
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
         <div>
           <div className="pl-5 text-[goldenrod] text-left montserrat-alternates">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Basic Machine Learning
+              Basic Machine Learning
             </h1>
             <p className="text-sm text-[#00000088] mb-6">
-                The Basic Machine Learning Course is designed to take you from a beginner to a confident machine learning practitioner, capable of building and deploying intelligent models for a variety of applications.
+              The Basic Machine Learning Course is designed to take you from a beginner to a confident machine learning practitioner, capable of building and deploying intelligent models for a variety of applications.
             </p>
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
-              <Button className="bg-[goldenrod] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
+              <Button onClick={handleOpen} className="bg-[goldenrod] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
                 PURCHASE NOW
               </Button>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg px-8">
-              ৳1000 <del className="text-xs">৳2000</del>
+                ৳1000 <del className="text-xs">৳2000</del>
               </p>
             </div>
           </div>
@@ -38,8 +91,47 @@ export default function BasicMachineLeaning() {
         </div>
       </div>
       <div className="">
-        <DetailsBFD/>
+        <DetailsBFD />
       </div>
+
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader className="text-center flex justify-center items-center">Purchase Page</DialogHeader>
+        <DialogBody className="grid grid-rows-6 gap-3 justify-center items-center">
+          <div className="w-72">
+            <Input type="text" name="fullName" label="Full Name" onChange={handleChange} value={formData.fullName} />
+          </div>
+          <div className="w-72">
+            <Input type="number" name="number" min={0} label="Number" onChange={handleChange} value={formData.number} />
+          </div>
+          <div className="w-72">
+            <Input type="number" name="whatsappNumber" min={0} label="What's App Number" onChange={handleChange} value={formData.whatsappNumber} />
+          </div>
+          <div className="w-72">
+            <Input type="email" name="email" label="Email" onChange={handleChange} value={formData.email} />
+          </div>
+          <div className="w-72">
+            <Input type="text" name="address" label="Address" onChange={handleChange} value={formData.address} />
+          </div>
+          <div className="w-72">
+            <Input type="file" name="photo" accept=".jpg, .png, .jpeg" label="Photo" onChange={handleChange} />
+          </div>
+        </DialogBody>
+        <DialogFooter className="flex justify-center items-center">
+          <Button
+            variant="text"
+            color="red"
+            onClick={handleOpen}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+          <button className="btn-31" onClick={handleRegister}>
+            <span className="text-container">
+              <span className="text">Register</span>
+            </span>
+          </button>
+        </DialogFooter>
+      </Dialog>
     </div>
   );
 }
