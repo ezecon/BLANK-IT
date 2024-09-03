@@ -42,7 +42,7 @@ export default function BasicComputer() {
         }
       });
     
-      if (res.status === 201) {
+      if (res.status === 200) {
         // Successful registration
         toast.success("Registration Completed!");
         handleOpen(); // Close the dialog after successful registration
