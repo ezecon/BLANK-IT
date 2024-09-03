@@ -5,13 +5,13 @@ export function Footer() {
     <footer className="w-full bg-white p-8 mt-20">
       <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 text-center md:justify-between">
         <img src="1.jpg" alt="logo-ct" className="w-16 rounded-full" />
-        <ul className="flex  items-center gap-y-2 gap-x-8">
+        <ul className="flex  items-center gap-y-2 gap-x-2 sm:gap-x-8">
           <li>
             <Typography
               as="a"
               href="#"
               color="blue-gray"
-              className="font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"
+              className="text-sm font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"
             >
               About Us
             </Typography>
@@ -21,7 +21,7 @@ export function Footer() {
               as="a"
               href="#"
               color="blue-gray"
-              className="font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"
+              className="text-sm  font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"
             >
               License
             </Typography>
@@ -31,7 +31,7 @@ export function Footer() {
               as="a"
               href="#"
               color="blue-gray"
-              className="font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"            >
+              className="text-sm  font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"            >
               Contribute
             </Typography>
           </li>
@@ -40,7 +40,7 @@ export function Footer() {
               as="a"
               href="#"
               color="blue-gray"
-              className="font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"            >
+              className="text-sm  font-bold montserrat-alternates transition-colors hover:text-[goldenrod]"            >
               Contact Us
             </Typography>
           </li>
