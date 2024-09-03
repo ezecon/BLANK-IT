@@ -38,7 +38,7 @@ export default function BasicComputer() {
     };
   
     try {
-      const res = await axios.post(`http://localhost:5000/api/course-purchases`, data, {
+      const res = await axios.post(`https://dot-it-server.vercel.app/api/course-purchases`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -48,7 +48,9 @@ export default function BasicComputer() {
         // Successful registration
         toast.success("Registration Completed!");
         handleOpen(); // Close the dialog after successful registration
-        navigate(`/confirmation`)
+        navigate('/confirmation', {
+          state: { email: formData.email }
+        });
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {

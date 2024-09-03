@@ -68,7 +68,7 @@ export default function Nav() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 0);
+        }, 5000);
 
         return () => clearTimeout(timer);
     }, []);

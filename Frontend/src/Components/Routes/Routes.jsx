@@ -6,6 +6,7 @@ import BasicFrontendDevelopment from "../CourseDetails/BFD/BasicFrontendDevelopm
 import BasicComputer from "../CourseDetails/BC/BasicComputer";
 import BasicMachineLeaning from "../CourseDetails/BML/BasicMachineLeaning";
 import UnderConstruction from "../UnderConstruction/UnderConstruction";
+import Confirm from "../Confirm/Confirm";
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path:"dashboard",
                 element:<UnderConstruction/>
+            },
+            {
+                path:"confirmation",
+                element:<Confirm/>
             },
 
         ]
