@@ -12,49 +12,55 @@ export default function BasicMachineLeaning() {
     whatsappNumber: '',
     email: '',
     address: '',
-    photo: null,
   });
 
   const handleOpen = () => setOpen(!open);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: files ? files[0] : value,
+      [name]: value,
     });
   };
 
   const courses = "Basic Machine Learning";
   const handleRegister = async () => {
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.fullName);
-    formDataToSend.append('number', formData.number);
-    formDataToSend.append('wNumber', formData.whatsappNumber);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('address', formData.address);
-    formDataToSend.append('course', courses);
-    if (formData.photo) {
-      formDataToSend.append('photo', formData.photo);
-    }
+    const data = {
+      name: formData.fullName,
+      number: formData.number,
+      wNumber: formData.whatsappNumber,
+      email: formData.email,
+      address: formData.address,
+      course: courses,
+    };
   
     try {
-      const res = await axios.post(`http://localhost:5000/api/course-purchases`, formDataToSend, {
+      const res = await axios.post(`http://localhost:5000/api/course-purchases`, data, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+          'Content-Type': 'application/json'
+        }
       });
-  
-      if (res.status === 200) {
+    
+      if (res.status === 201) {
+        // Successful registration
         toast.success("Registration Completed!");
         handleOpen(); // Close the dialog after successful registration
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Registration Failed. Please try again.");
+      if (error.response && error.response.status === 400) {
+        // Handle specific error code from backend (e.g., duplicate email)
+        toast.error("Email already in use. Please use a different email.");
+        handleOpen();
+      } else {
+        // Handle general errors
+        console.error(error);
+        toast.error("Registration Failed. Please try again.");
+      }
     }
+    
   };
-  
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
@@ -96,7 +102,7 @@ export default function BasicMachineLeaning() {
 
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader className="text-center flex justify-center items-center">Purchase Page</DialogHeader>
-        <DialogBody className="grid grid-rows-6 gap-3 justify-center items-center">
+        <DialogBody className="grid grid-rows-5 gap-3 justify-center items-center">
           <div className="w-72">
             <Input type="text" name="fullName" label="Full Name" onChange={handleChange} value={formData.fullName} />
           </div>
@@ -111,9 +117,6 @@ export default function BasicMachineLeaning() {
           </div>
           <div className="w-72">
             <Input type="text" name="address" label="Address" onChange={handleChange} value={formData.address} />
-          </div>
-          <div className="w-72">
-            <Input type="file" name="photo" accept=".jpg, .png, .jpeg" label="Photo" onChange={handleChange} />
           </div>
         </DialogBody>
         <DialogFooter className="flex justify-center items-center">
