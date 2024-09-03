@@ -11,11 +11,6 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   const { name, number, wNumber, email, address, course } = req.body;
-
-  if (!name || !number || !wNumber || !email || !address || !course) {
-    return res.status(400).json({ message: 'All fields are required.' });
-  }
-
   try {
     // Check if the email already exists
     const existingUser = await User.findOne({ email });
