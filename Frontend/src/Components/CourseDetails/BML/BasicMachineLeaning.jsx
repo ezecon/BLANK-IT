@@ -27,24 +27,24 @@ export default function BasicMachineLeaning() {
 
   const courses = "Basic Machine Learning";
   const handleRegister = async () => {
-    const data = {
-      name: formData.fullName,
-      number: formData.number,
-      wNumber: formData.whatsappNumber,
-      email: formData.email,
-      address: formData.address,
-      course: courses,
-      /*if (formData.photo) {
-      photo: formData.photo;
-    }*/
-    };
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.fullName);
+    formDataToSend.append('number', formData.number);
+    formDataToSend.append('wNumber', formData.whatsappNumber);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('address', formData.address);
+    formDataToSend.append('course', courses);
+    if (formData.photo) {
+      formDataToSend.append('photo', formData.photo);
+    }
   
     try {
-      const res = await axios.post(`https://dot-it-server.vercel.app/api/course-purchases`, data, {
+      const res = await axios.post(`http://localhost:5000/api/course-purchases`, formDataToSend, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
+  
       if (res.status === 200) {
         toast.success("Registration Completed!");
         handleOpen(); // Close the dialog after successful registration
@@ -54,7 +54,7 @@ export default function BasicMachineLeaning() {
       toast.error("Registration Failed. Please try again.");
     }
   };
-
+  
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
