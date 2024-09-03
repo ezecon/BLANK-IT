@@ -41,18 +41,19 @@ export function Students() {
             <p className="text-gray-700">
                 <span className="font-bold ">Students:</span>
                 <br />
-                <div>
+                <div className="mt-5">
                 {
                     datas
                         .filter(i => i.course === 'Basic Computer')
                         .map((i, index) => (
-                        <div key={i.email} className="mb-4">
+                        <div key={i.email} className="mb-4 font-normal">
                             <p>Serial No: {index + 1}</p>
                             <p>Name: {i.name}</p>
                             <p>Email: {i.email}</p>
                             <p>Number: {i.number}</p>
                             <p>WhatsApp: {i.wNumber}</p>
                             <p>Address: {i.address}</p>
+                            <hr />
                         </div>
                         ))
                     }
@@ -74,11 +75,25 @@ export function Students() {
         </summary>
         <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
             <p className="text-gray-700">
-                <span className="font-bold ">Topic:</span>
+                <span className="font-bold ">Students:</span>
                 <br />
-                <div>
-                    <p>1</p>
-                    <p>2</p>
+                <div className="mt-5">
+                {
+                    datas
+                        .filter(i => i.course === 'Basic Frontend Development')
+                        .map((i, index) => (
+                        <div key={i.email} className="mb-4 font-normal">
+                            <p>Serial No: {index + 1}</p>
+                            <p>Name: {i.name}</p>
+                            <p>Email: {i.email}</p>
+                            <p>Number: {i.number}</p>
+                            <p>WhatsApp: {i.wNumber}</p>
+                            <p>Address: {i.address}</p>
+                            <hr />
+                        </div>
+                        ))
+                    }
+
                 </div>
             </p>
         </div>
@@ -96,11 +111,25 @@ export function Students() {
         </summary>
         <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
             <p className="text-gray-700">
-                <span className="font-bold ">Topic:</span>
+                <span className="font-bold ">Students:</span>
                 <br />
-                <div>
-                    <p>1</p>
-                    <p>2</p>
+                <div className="mt-5">
+                {
+                    datas
+                        .filter(i => i.course === 'Basic Machine Learning')
+                        .map((i, index) => (
+                        <div key={i.email} className="mb-4 font-normal">
+                            <p>Serial No: {index + 1}</p>
+                            <p>Name: {i.name}</p>
+                            <p>Email: {i.email}</p>
+                            <p>Number: {i.number}</p>
+                            <p>WhatsApp: {i.wNumber}</p>
+                            <p>Address: {i.address}</p>
+                            <hr />
+                        </div>
+                        ))
+                    }
+
                 </div>
             </p>
         </div>

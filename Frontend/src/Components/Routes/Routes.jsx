@@ -73,6 +73,11 @@ const router = createBrowserRouter([
             }
         ]
     }
+    ,{
+        path:'*',
+
+        element:<UnderConstruction/>
+    }
 ]);
 
 export default router;
