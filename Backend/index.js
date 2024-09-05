@@ -20,5 +20,11 @@ mongoose.connect('mongodb+srv://mdeconozzama:21JcFAxOPQLwJJhY@cluster0.epjlx.mon
 
 app.use('/api/course-purchases', require('./routes/userRoutes'));
 
+app.use('/api/course', require('./routes/courseRoutes copy'));
+
+app.use('/api/topic', require('./routes/topicRoute'));
+
+app.use('/api/resouce', require('./routes/resourceRoute'));
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

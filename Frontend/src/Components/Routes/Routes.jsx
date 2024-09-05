@@ -9,6 +9,8 @@ import UnderConstruction from "../UnderConstruction/UnderConstruction";
 import Confirm from "../Confirm/Confirm";
 import Index from "../../Pages/Admin/Index";
 import { Students } from "../../Pages/Admin/Students/Students";
+import NewCourses from "../../Pages/Admin/NewCourse/NewCourses";
+import AllCoursesAdmin from "../../Pages/Admin/AllCourses/AllCourses";
 
 
 const router = createBrowserRouter([
@@ -70,7 +72,15 @@ const router = createBrowserRouter([
             {
                 path:'',
                 element:<Students/>
-            }
+            },
+            {
+                path:'new-course',
+                element:<NewCourses/>
+            },
+            {
+                path:'all-courses',
+                element:<AllCoursesAdmin/>
+            },
         ]
     }
     ,{

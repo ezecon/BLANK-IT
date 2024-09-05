@@ -36,7 +36,7 @@ export default function NavAdmin() {
             setDisplayComponentLeft(
               <div className={`${isLoading ? 'scrolled' : ''}`}>
                    <nav className={`navbar `}>
-                    <Link to="/"><p>Home</p></Link>
+                    <Link to="/admin"><p>Home</p></Link>
                     <Link to="new-course"><p>New Course</p></Link>
                     <Link to="add-event"><p>Add Event</p></Link>
                     
@@ -46,7 +46,7 @@ export default function NavAdmin() {
             );
             setDisplayComponentRight(
                 <nav className='navbar'>
-                    <Link to="/all-courses"><p className="cursor-pointer flex gap-1 bg-[#d0d5dd] text-black rounded-lg p-3">
+                    <Link to="all-courses"><p className="cursor-pointer flex gap-1 bg-[#d0d5dd] text-black rounded-lg p-3">
                         All Courses <IoIosArrowUp />
                     </p></Link>
                    
@@ -74,7 +74,7 @@ export default function NavAdmin() {
         <header className={`px-10 bebas-neue w-full rounded-xl ${isLoading ? 'scrolled' : ''}`}>
             {displayComponentLeft}
             <div className='logo-container'>
-                <img className='logo rounded-full' src="1.jpg" alt="" />
+                <img className='logo rounded-full' src="/1.jpg" alt="" />
             </div>
             {displayComponentRight}
             <Drawer
