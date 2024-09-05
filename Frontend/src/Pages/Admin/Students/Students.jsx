@@ -19,7 +19,7 @@ export function Students() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/course`);
+        const res = await axios.get(`https://dot-it-server.vercel.app/api/course`);
         if (res.status === 200) {
           setDatas(res.data);
         }
@@ -58,33 +58,46 @@ export function Students() {
     setResource(e.target.value);
   };
 
-  const handleTopic = async () => {
-    try {
-      const res = await axios.post(`https://dot-it-server.vercel.app/api/topic`, {
-        name: selectedCourse,
-        topic: topic,
-      });
-      if (res.status === 200) {
-        toast.success("Topic Added");
-        setTopic(""); // Clear the input after submission
+  const handleTopic = async (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (topic === '') {
+      toast.error("Enter Topic");
+    } else {
+      try {
+        const res = await axios.post(`https://dot-it-server.vercel.app/api/topic`, {
+          name: selectedCourse,
+          topic: topic,
+        });
+        if (res.status === 200) {
+          toast.success("Topic Added");
+          setTopic(""); // Clear the input after submission
+        }
+      } catch (error) {
+        console.log("Error adding topic:", error.response?.data || error.message);
+        toast.error("Failed to add topic. Please try again.");
       }
-    } catch (error) {
-      console.log(error);
     }
   };
 
-  const handleResource = async () => {
-    try {
-      const res = await axios.post(`https://dot-it-server.vercel.app/api/resource`, {
-        name: selectedCourse,
-        resource: resource,
-      });
-      if (res.status === 200) {
-        toast.success("Resource Added");
-        setResource(""); // Clear the input after submission
+  const handleResource = async (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (resource === '') {
+      toast.error("Enter Resource");
+    } else {
+      
+      try {
+        const res = await axios.post(`https://dot-it-server.vercel.app/api/resource`, {
+          name: selectedCourse,
+          resource: resource,
+        });
+        if (res.status === 200) {
+          toast.success("Resource Added");
+          setResource(""); // Clear the input after submission
+        }
+      } catch (error) {
+        console.log("Error adding resource:", error.response?.data || error.message);
+        toast.error("Failed to add resource. Please try again.");
       }
-    } catch (error) {
-      console.log(error);
     }
   };
 
@@ -104,7 +117,7 @@ export function Students() {
       </div>
 
       <div>
-        <details className="montserrat-alternates font-bold group w-full  py-10">
+        <details className="montserrat-alternates font-bold group w-full py-10">
           <summary className="mx-5 cursor-pointer bg-gradient-to-r from-[goldenrod] to-[#edfa37] text-white px-6 py-3 rounded-md text-lg font-semibold flex justify-between items-center">
             Students
             <span className="transform transition-transform duration-300 group-open:rotate-180">
@@ -132,7 +145,7 @@ export function Students() {
       </div>
 
       <div>
-        <details className="montserrat-alternates font-bold group w-full  py-10">
+        <details className="montserrat-alternates font-bold group w-full py-10">
           <summary className="mx-5 cursor-pointer bg-gradient-to-r from-[goldenrod] to-[#edfa37] text-white px-6 py-3 rounded-md text-lg font-semibold flex justify-between items-center">
             Class Topic:
             <span className="transform transition-transform duration-300 group-open:rotate-180">
@@ -140,23 +153,25 @@ export function Students() {
             </span>
           </summary>
           <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
-            <div className="w-72 py-2">
-              <Input
-                required
-                value={topic}
-                label="Topic"
-                onChange={handleTopicChange}
-              />
-            </div>
-            <div>
-              <Button onClick={handleTopic}>Add Topic</Button>
-            </div>
+            <form onSubmit={handleTopic}>
+              <div className="w-72 py-2">
+                <Input
+                  required
+                  value={topic}
+                  label="Topic"
+                  onChange={handleTopicChange}
+                />
+              </div>
+              <div>
+                <Button type="submit">Add Topic</Button>
+              </div>
+            </form>
           </div>
         </details>
       </div>
 
       <div>
-        <details className="montserrat-alternates font-bold group w-full  py-10">
+        <details className="montserrat-alternates font-bold group w-full py-10">
           <summary className="mx-5 cursor-pointer bg-gradient-to-r from-[goldenrod] to-[#edfa37] text-white px-6 py-3 rounded-md text-lg font-semibold flex justify-between items-center">
             Resources
             <span className="transform transition-transform duration-300 group-open:rotate-180">
@@ -164,17 +179,19 @@ export function Students() {
             </span>
           </summary>
           <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
-            <div className="w-72 py-2">
-              <Input
-                required
-                value={resource}
-                label="Resource"
-                onChange={handleResourceChange}
-              />
-            </div>
-            <div>
-              <Button onClick={handleResource}>Add Resource</Button>
-            </div>
+            <form onSubmit={handleResource}>
+              <div className="w-72 py-2">
+                <Input
+                  required
+                  value={resource}
+                  label="Resource"
+                  onChange={handleResourceChange}
+                />
+              </div>
+              <div>
+                <Button type="submit">Add Resource</Button>
+              </div>
+            </form>
           </div>
         </details>
       </div>

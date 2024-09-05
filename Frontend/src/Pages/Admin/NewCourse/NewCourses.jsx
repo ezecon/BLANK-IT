@@ -40,7 +40,7 @@ export default function NewCourses() {
     };
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/course`, data, {
+      const res = await axios.post(`https://dot-it-server.vercel.app/api/course`, data, {
         headers: {
           'Content-Type': 'application/json'
         }

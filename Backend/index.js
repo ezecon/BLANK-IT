@@ -24,7 +24,7 @@ app.use('/api/course', require('./routes/courseRoutes copy'));
 
 app.use('/api/topic', require('./routes/topicRoute'));
 
-app.use('/api/resouce', require('./routes/resourceRoute'));
+app.use('/api/resource', require('./routes/resourceRoute'));
 
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

@@ -1,31 +1,29 @@
 const express = require('express');
 const router = express.Router();
-const Course = require('../models/resource'); // Assuming the course schema is in the Course model
+const Resource = require('../models/resource'); // Correct model import
 
 router.get('/', async (req, res) => {
   try {
-    const courses = await Course.find(); 
-    res.status(200).json(courses); 
+    const resources = await Resource.find(); 
+    res.status(200).json(resources); 
   } catch (err) {
-    res.status(500).json({ message: 'Error retrieving courses. Please try again.' });
+    res.status(500).json({ message: 'Error retrieving resources. Please try again.' });
   }
 });
 
 router.post('/', async (req, res) => {
-  const { name, resource} = req.body;
+  const { name, resource } = req.body;
 
-  const newCourse = new Course({
+  const newResource = new Resource({
     name, resource
   });
 
   try {
-    const savedCourse = await newCourse.save();
-    res.status(200).json(savedCourse);
+    const savedResource = await newResource.save();
+    res.status(200).json(savedResource);
   } catch (err) {
-    res.status(500).json({ message: 'Error adding course. Please try again.' });
+    res.status(500).json({ message: 'Error adding resource. Please try again.' });
   }
 });
-
-
 
 module.exports = router;
