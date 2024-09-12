@@ -11,6 +11,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+//find by the url
+router.get('/url/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const courses = await Course.find({ URL: id }); 
+    res.status(200).json(courses); 
+  } catch (err) {
+    res.status(500).json({ message: 'Error retrieving courses. Please try again.' });
+  }
+});
+
+
 router.post('/', async (req, res) => {
   const { name, image, bio, price, oldPrice,URI, instructor } = req.body;
 

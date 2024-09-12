@@ -47,12 +47,18 @@ export function Footer() {
         </ul>
       </div>
       <hr className="my-8 border-blue-gray-50" />
-      <div className="grid gap-4 justify-center items-center">
+      <div className=" gap-4 justify-center items-center">
         <Typography
           color="blue-gray"
           className="font-bold text-sm text-center montserrat-alternates mt-4 sm:mt-0"
         >
           &copy; 2024 All Rights Reserved By DOT-iT
+        </Typography>
+        <Typography
+          color="blue-gray"
+          className="font-bold text-sm text-center montserrat-alternates mt-4 sm:mt-0"
+        >
+          Developed By <a href="http://md-econozzaman.vercel.app">Econ</a>
         </Typography>
       </div>
     </footer>
