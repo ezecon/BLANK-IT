@@ -12,7 +12,7 @@ export default function Hridoy() {
       </div>
       <div>
         <h1 className="text-[goldenrod] cursive text-lg sm:text-xl font-bold text-center py-5">
-         Md. Atikur Rahman
+         Third Person
         </h1>
         <div className="text-[goldenrod] text-2xl flex justify-center pb-2 gap-3">
             <a href="https://www.facebook.com/atikcse59"><FaFacebook className="cursor-pointer"/></a>

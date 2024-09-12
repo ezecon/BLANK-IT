@@ -1,10 +1,8 @@
 import { FaArrowRight } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function CourseCard_({data}) {
   const {name, price, oldPrice, image,URI} =data;
-
-
   return (
     <div className="shadow-lg w-full rounded-xl border">
       <div className="w-full object-cover p-5">
@@ -24,7 +22,11 @@ export default function CourseCard_({data}) {
         <h1 className="cursive text-lg sm:text-xl font-bold text-center py-5">
           {name}
         </h1>
-  
+       <Link to={`/courses/${URI}`}> <p className="bg-[#eaecf0] mx-4 sm:mx-10 md:mx-16 lg:mx-28 p-2 sm:p-3 md:p-4 my-2 rounded-xl cursor-pointer hover:bg-[#d0d5dd] flex justify-center items-center gap-2 text-sm sm:text-md md:text-lg montserrat-alternates">
+           DETAILS <FaArrowRight className="text-sm sm:text-lg md:text-xl" />
+        </p></Link>
+
+
       </div>
     </div>
   );
