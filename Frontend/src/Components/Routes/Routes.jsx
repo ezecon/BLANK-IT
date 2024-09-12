@@ -2,15 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Main/Main";
 import Home from "../../Pages/Home/Home";
 import AllCourses from "../AllCourses/AllCourses";
-import BasicFrontendDevelopment from "../CourseDetails/BFD/BasicFrontendDevelopment";
-import BasicComputer from "../CourseDetails/BC/BasicComputer";
-import BasicMachineLeaning from "../CourseDetails/BML/BasicMachineLeaning";
 import UnderConstruction from "../UnderConstruction/UnderConstruction";
 import Confirm from "../Confirm/Confirm";
 import Index from "../../Pages/Admin/Index";
 import { Students } from "../../Pages/Admin/Students/Students";
 import NewCourses from "../../Pages/Admin/NewCourse/NewCourses";
 import AllCoursesAdmin from "../../Pages/Admin/AllCourses/AllCourses";
+import Course from "../CourseDetails/BasicStructure/Course";
 
 
 const router = createBrowserRouter([
@@ -26,17 +24,10 @@ const router = createBrowserRouter([
                 path:"all-courses",
                 element:<AllCourses/>
             },
+            
             {
-                path:"basic-frontend-development",
-                element:<BasicFrontendDevelopment/>
-            },
-            {
-                path:"basic-computer",
-                element:<BasicComputer/>
-            },
-            {
-                path:"basic-machine-learning",
-                element:<BasicMachineLeaning/>
+                path:"courses/:id",
+                element:<Course/>
             },
             {
                 path:"gallery",

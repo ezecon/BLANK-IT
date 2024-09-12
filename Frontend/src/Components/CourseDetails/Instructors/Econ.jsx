@@ -5,7 +5,7 @@ export default function Econ() {
     <div className="shadow-lg w-full rounded-xl border">
       <div className="w-full   p-5">
         <img
-          src="econ.jpg"
+          src="/econ.jpg"
           alt="Course"
           className="w-full h-[50vh] object-cover rounded-lg hover:scale-95 transition-transform duration-500"
         />

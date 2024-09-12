@@ -77,7 +77,7 @@ export default function Nav() {
         <header className={`px-10 bebas-neue w-full rounded-xl ${isLoading ? 'scrolled' : ''}`}>
             {displayComponentLeft}
             <div className='logo-container'>
-                <img className='logo rounded-full' src="1.jpg" alt="" />
+                <img className='logo rounded-full' src="/1.jpg" alt="" />
             </div>
             {displayComponentRight}
             <Drawer

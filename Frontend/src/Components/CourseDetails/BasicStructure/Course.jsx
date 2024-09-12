@@ -1,9 +1,9 @@
 import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input } from "@material-tailwind/react";
-import { DetailsBFD } from "./DetailsBFD";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from "react-router-dom";
+import { Details } from "./DetailsBFD";
 
 export default function Course() {
   const [open, setOpen] = useState(false);
@@ -68,20 +68,22 @@ export default function Course() {
     
   };
 
-  useEffect(()=>{
-    const fetchInfo = async ()=>{
-        try{
-            const res = axios.get(`https://dot-it-server.vercel.app/api/course/url/${id}`)
-            if(res.status===200){
-                setInfo(res.data)
-            }
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const res = await axios.get(`https://dot-it-server.vercel.app/api/course/url/${id}`);
+        if (res.status === 200) {
+          setInfo(res.data[0]);  // Assuming res.data is the course data
+          console.log(res.data);
         }
-        catch(error){
-            console.log(error)
-        }
-    }
-    fetchInfo()
-  },[id])
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchInfo();
+  }, [id]); // Adding 'id' as a dependency ensures it runs when id changes
+  
 
 
   return (
@@ -90,17 +92,17 @@ export default function Course() {
         <div>
           <div className="pl-5 text-[goldenrod] text-left montserrat-alternates">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Basic Computer
+              {info?info.name :<p>Loading</p>}
             </h1>
             <p className="text-sm text-[#00000088] mb-6">
-              The Basic Machine Learning Course is designed to take you from a beginner to a confident machine learning practitioner, capable of building and deploying intelligent models for a variety of applications.
+             {info.bio}
             </p>
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
               <Button onClick={handleOpen} className="bg-[goldenrod] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
                 PURCHASE NOW
               </Button>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg px-8">
-                ৳1000 <del className="text-xs">৳2000</del>
+                ৳{info.price} <del className="text-xs">৳{info.oldPrice}</del>
               </p>
             </div>
           </div>
@@ -114,13 +116,13 @@ export default function Course() {
         <div className="p-3">
           <img
             className="rounded-xl shadow-lg hover:scale-95 transition-transform duration-500 w-full h-auto"
-            src="2.jpg"
+            src={info.image}
             alt="Course Preview"
           />
         </div>
       </div>
       <div className="">
-        <DetailsBFD />
+        <Details info={info} />
       </div>
 
       <Dialog open={open} handler={handleOpen}>

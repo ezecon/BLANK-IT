@@ -1,6 +1,6 @@
 import { FaFacebook, FaGithub } from "react-icons/fa";
 
-export default function Atik() {
+export default function Hridoy() {
   return (
     <div className="shadow-lg w-full rounded-xl border">
       <div className="w-full   p-5">
