@@ -19,34 +19,41 @@ export function Details({ info }) {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    const fetchTopics = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get(`https://dot-it-server.vercel.app/api/topic`);
-        if (res.status === 200) {
-          setTopics(res.data);
+        const [topicsRes, resourcesRes] = await Promise.all([
+          axios.get('https://dot-it-server.vercel.app/api/topic'),
+          axios.get('https://dot-it-server.vercel.app/api/resource')
+        ]);
+        if (topicsRes.status === 200) {
+          setTopics(topicsRes.data);
+        }
+        if (resourcesRes.status === 200) {
+          setResources(resourcesRes.data);
         }
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchTopics();
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchResources = async () => {
-      try {
-        const res = await axios.get(`https://dot-it-server.vercel.app/api/resource`);
-        if (res.status === 200) {
-          setResources(res.data);
+  const groupedItems = (items, key) => {
+    return items
+      .filter(item => item.name === name)
+      .reduce((acc, item) => {
+        const group = acc.find(g => g.classno === item.classno);
+        if (group) {
+          group.items.push(item);
+        } else {
+          acc.push({ classno: item.classno, items: [item] });
         }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+        return acc;
+      }, []);
+  };
 
-    fetchResources();
-  }, []);
+  const topicGroups = groupedItems(topics, 'classno');
 
   const data = [
     {
@@ -54,34 +61,28 @@ export function Details({ info }) {
       value: "outline",
       desc: (
         <>
-          {topics
-            .filter(topic => topic.name === name)
-            .reduce((acc, topic) => {
-              const existingClass = acc.find(item => item.classNo === topic.classNo);
-              if (existingClass) {
-                existingClass.topics.push(topic);
-              } else {
-                acc.push({ classNo: topic.classNo, topics: [topic] });
-              }
-              return acc;
-            }, [])
-            .map((group, index) => (
+          {topicGroups.length > 0 ? (
+            topicGroups.map((group, index) => (
               <details key={index} className="montserrat-alternates font-bold group w-full py-10">
                 <summary className="mx-5 cursor-pointer bg-gradient-to-r from-[goldenrod] to-[#edfa37] text-white px-6 py-3 rounded-md text-lg font-semibold flex justify-between items-center">
-                  Class {group.classNo}
+                  Class {group.classno}
                   <span className="transform transition-transform duration-300 group-open:rotate-180">
                     <TbManFilled className="text-2xl" />
                   </span>
                 </summary>
                 <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
-                  {group.topics.map((i, idx) => (
+                  {group.items.map((item, idx) => (
                     <p key={idx} className="text-gray-700">
-                      <span className="font-light">{i.topic}</span>
+                      <span className="font-bold">Topic: </span>
+                      <span className="font-light">{item.topic}</span>
                     </p>
                   ))}
                 </div>
               </details>
-            ))}
+            ))
+          ) : (
+            <p>No topics available</p>
+          )}
         </>
       ),
     },
@@ -90,7 +91,7 @@ export function Details({ info }) {
       value: "react",
       desc: (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {instructor && typeof instructor === "object" ? (
+          {instructor ? (
             <>
               {instructor.econ && <Econ />}
               {instructor.science && <Atik />}
@@ -105,39 +106,26 @@ export function Details({ info }) {
     {
       label: "Resources",
       value: "resources",
-      desc: (
+      desc:  (
         <>
           {resources
-            .filter(resource => resource.name === name)
-            .reduce((acc, resource) => {
-              const existingClass = acc.find(item => item.classNo === resource.classNo);
-              if (existingClass) {
-                existingClass.resources.push(resource);
-              } else {
-                acc.push({ classNo: resource.classNo, resources: [resource] });
-              }
-              return acc;
-            }, [])
-            .map((group, index) => (
+            .filter(i => i.name === name)
+            .map((i, index) => (
               <details key={index} className="montserrat-alternates font-bold group w-full py-10">
                 <summary className="mx-5 cursor-pointer bg-gradient-to-r from-[goldenrod] to-[#edfa37] text-white px-6 py-3 rounded-md text-lg font-semibold flex justify-between items-center">
-                  Resource {group.classNo}
+                  Resource {index + 1}
                   <span className="transform transition-transform duration-300 group-open:rotate-180">
                     <TbManFilled className="text-2xl" />
                   </span>
                 </summary>
                 <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
-                  {group.resources.length === 0 ? (
+                {i.resource?.length === 0 ? (
                     <p>Empty</p>
                   ) : (
-                    group.resources.map((i, idx) => (
-                      <p key={idx} className="text-gray-700">
-                        <span className="font-bold">Details: </span>
-                        <span className="font-light">
-                          <a href={i.resource}>{i.resource}</a>
-                        </span>
-                      </p>
-                    ))
+                    <p className="text-gray-700">
+                      <span className="font-bold">Details:</span>
+                      <span className="font-light"><a href={i.resource}>{i.resource}</a></span>
+                    </p>
                   )}
                 </div>
               </details>

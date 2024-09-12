@@ -75,7 +75,8 @@ export function Students() {
         });
         if (res.status === 200) {
           toast.success("Topic Added");
-          setTopic(""); // Clear the input after submission
+          setTopic(""); 
+          setClassNo("");
         }
       } catch (error) {
         console.log("Error adding topic:", error.response?.data || error.message);
