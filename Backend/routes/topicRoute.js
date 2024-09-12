@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { name, topic } = req.body;
+  const { name, topic,classno} = req.body;
 
   const newTopic = new Topic({
-    name, topic
+    name, topic,classno
   });
 
   try {

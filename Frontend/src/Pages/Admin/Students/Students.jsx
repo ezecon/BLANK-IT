@@ -14,6 +14,7 @@ export function Students() {
   const [datas, setDatas] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState("");
   const [topic, setTopic] = useState("");
+  const [classno, setClassNo] = useState("");
   const [resource, setResource] = useState("");
 
   useEffect(() => {
@@ -53,6 +54,9 @@ export function Students() {
   const handleTopicChange = (e) => {
     setTopic(e.target.value);
   };
+  const handleClassChange = (e) => {
+    setClassNo(e.target.value);
+  };
 
   const handleResourceChange = (e) => {
     setResource(e.target.value);
@@ -66,6 +70,7 @@ export function Students() {
       try {
         const res = await axios.post(`https://dot-it-server.vercel.app/api/topic`, {
           name: selectedCourse,
+          classno:classno,
           topic: topic,
         });
         if (res.status === 200) {
@@ -154,6 +159,14 @@ export function Students() {
           </summary>
           <div className="mx-5 mt-2 bg-gray-100 p-4 rounded-md shadow-inner">
             <form onSubmit={handleTopic}>
+              <div className="w-72 py-2">
+                <Input
+                  required
+                  value={classno}
+                  label="Class No"
+                  onChange={handleClassChange}
+                />
+              </div>
               <div className="w-72 py-2">
                 <Input
                   required

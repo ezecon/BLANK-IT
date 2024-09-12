@@ -9,6 +9,10 @@ const topicSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  classno: {
+    type: String,
+    required: true,
+  },
 
   date: {
     type: Date,
