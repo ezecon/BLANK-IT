@@ -1,13 +1,16 @@
 import { FaArrowRight } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function CourseCardBC() {
+export default function CourseCard_({data}) {
+  const {name, price, oldPrice, image,URI} =data;
+
+
   return (
     <div className="shadow-lg w-full rounded-xl border">
       <div className="w-full object-cover p-5">
         <img
-          src="https://cdn.ostad.app/course/cover/2024-01-24T10-16-02.941Z-ASP-NET-core-career-track.jpg"
-          alt="Course"
+          src={image}
+          alt={name}
           className="w-full h-auto rounded-lg"
         />
       </div>
@@ -19,13 +22,9 @@ export default function CourseCardBC() {
       <hr />
       <div>
         <h1 className="cursive text-lg sm:text-xl font-bold text-center py-5">
-          Basic Computer
+          {name}
         </h1>
-        <Link to="/courses/basic-computer"> <p className="bg-[#eaecf0] mx-4 sm:mx-10 md:mx-16 lg:mx-28 p-2 sm:p-3 md:p-4 my-2 rounded-xl cursor-pointer hover:bg-[#d0d5dd] flex justify-center items-center gap-2 text-sm sm:text-md md:text-lg montserrat-alternates">
-           DETAILS <FaArrowRight className="text-sm sm:text-lg md:text-xl" />
-        </p></Link>
-
-
+  
       </div>
     </div>
   );

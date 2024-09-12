@@ -48,6 +48,7 @@ export default function NewCourses() {
 
       if (res.status === 200) {
         toast.success("Course Added Successfully!");
+      
       }
     } catch (error) {
         console.log(error)
@@ -108,13 +109,13 @@ export default function NewCourses() {
         <div className="w-72">
           <Input
             type="text"
-            name="uri"
-            min={0}
-            label="URI"
+            name="URI"
+            label="URL"
             onChange={handleChange}
             value={formData.URI}
           />
         </div>
+        
         <div className="w-72 montserrat-alternates">
             <label>
                 <input

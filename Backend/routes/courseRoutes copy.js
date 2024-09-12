@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/url/:id', async (req, res) => {
   const id = req.params.id;
   try {
-    const courses = await Course.find({ URL: id }); 
+    const courses = await Course.find({ URI: id }); 
     res.status(200).json(courses); 
   } catch (err) {
     res.status(500).json({ message: 'Error retrieving courses. Please try again.' });

@@ -27,8 +27,24 @@ export default function Course() {
       [name]: value,
     });
   };
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const res = await axios.get(`https://dot-it-server.vercel.app/api/course/url/${id}`);
+        if (res.status === 200) {
+          setInfo(res.data[0]);  // Assuming res.data is the course data
+          console.log(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchInfo();
+  }, [id]); // Adding 'id' as a dependency ensures it runs when id changes
+  
 
-  const courses = "Basic Computer";
+
   const handleRegister = async () => {
     const data = {
       name: formData.fullName,
@@ -36,7 +52,7 @@ export default function Course() {
       wNumber: formData.whatsappNumber,
       email: formData.email,
       address: formData.address,
-      course: courses,
+      course: info?.name,
     };
   
     try {
@@ -68,22 +84,6 @@ export default function Course() {
     
   };
 
-  useEffect(() => {
-    const fetchInfo = async () => {
-      try {
-        const res = await axios.get(`https://dot-it-server.vercel.app/api/course/url/${id}`);
-        if (res.status === 200) {
-          setInfo(res.data[0]);  // Assuming res.data is the course data
-          console.log(res.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    fetchInfo();
-  }, [id]); // Adding 'id' as a dependency ensures it runs when id changes
-  
 
 
   return (
@@ -95,14 +95,14 @@ export default function Course() {
               {info?info.name :<p>Loading</p>}
             </h1>
             <p className="text-sm text-[#00000088] mb-6">
-             {info.bio}
+            {info?info.bio :<p>Loading</p>}
             </p>
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
               <Button onClick={handleOpen} className="bg-[goldenrod] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
                 PURCHASE NOW
               </Button>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg px-8">
-                ৳{info.price} <del className="text-xs">৳{info.oldPrice}</del>
+                ৳{info?.price} <del className="text-xs">৳{info?.oldPrice}</del>
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Course() {
         <div className="p-3">
           <img
             className="rounded-xl shadow-lg hover:scale-95 transition-transform duration-500 w-full h-auto"
-            src={info.image}
+            src={info?.image}
             alt="Course Preview"
           />
         </div>

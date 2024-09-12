@@ -117,8 +117,8 @@ export function Details({ info }) {
                     <p>Empty</p>
                   ) : (
                     <p className="text-gray-700">
-                      <span className="font-bold">Details:</span>
-                      <span><a href={i.resource}>{i.resource}</a></span>
+                      <span className="font-bold">Details: </span>
+                      <span className="font-light"><a href={i.resource}>{i.resource}</a></span>
                     </p>
                   )}
                 </div>
