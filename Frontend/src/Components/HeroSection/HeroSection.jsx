@@ -7,7 +7,7 @@ export function HeroSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
         setIsLoading(false);
-    }, 5000);
+    },2000);
 
     return () => clearTimeout(timer);
 }, []);
@@ -36,7 +36,7 @@ export function HeroSection() {
         <div className={`text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-op'}`}>
           <div className="discount autoShow">
               <div className="img-container mt-3  sm:mt-10 border rounded-xl">
-                  <img src="https://scontent.fcgp27-1.fna.fbcdn.net/v/t39.30808-6/447904043_122152796162229546_3833688701580616768_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeExtfjxeI-fkO9WkJhMMWH1UTRvkKS5MMRRNG-QpLkwxHKhf1CSFozn_DbVEBS1qa_dw_M3_ILlKl3zr4o8prbq&_nc_ohc=H_2bRQ_rEAQQ7kNvgFlodR1&_nc_ht=scontent.fcgp27-1.fna&oh=00_AYBYkgs0mcjGuFzmJQKDHwv7Q9gR_7RZ7yPI4wmq9PTj3w&oe=66DB80E8" alt="Discount 1" />
+                  <img src="https://c4.wallpaperflare.com/wallpaper/125/663/689/high-tech-earth-hd-wallpaper-wallpaper-preview.jpg" alt="Discount 1" />
               </div>
               <div className="img-container mb-3  sm:mb-10 border rounded-xl">
                   <img src="https://scontent.fcgp27-1.fna.fbcdn.net/v/t39.30808-6/447961412_122152796060229546_7969611286801420143_n.jpg?stp=cp6_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFE1cI_YOhXfhwymyF4V8YbGVaLRh3t5A8ZVotGHe3kDxdsAE58EpnC19OFhdBQSRT2Ord0m_xgWwch5YOJo3f2&_nc_ohc=quIs82QlWF8Q7kNvgGu5Rem&_nc_ht=scontent.fcgp27-1.fna&oh=00_AYA7FJstXmfa7ypP0NaWajq0oMyc_WozRn6ekpoNApiLDA&oe=66DB76F8" alt="Discount 2" />

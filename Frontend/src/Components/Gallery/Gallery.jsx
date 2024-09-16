@@ -29,8 +29,8 @@ const Gallery = () => {
                 alt={`Slide ${index}`}
                 className="w-full h-[254px] sm:h-[288px] md:h-[500px] lg:h-[600px] xl:h-[612px] object-cover rounded-lg transform transition-transform duration-500 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 hover:opacity-100 text-white flex flex-col justify-center items-center">
-                <h1>Jani na</h1>
+              <div className="montserrat-alternates absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 hover:opacity-100 text-white flex flex-col justify-end items-center">
+                <h1 className="text-xl font-bold montserrat-alternates">Jani na</h1>
                 <p>kichu ekta hobe</p>
               </div>
             </div>

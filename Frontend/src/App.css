@@ -16,7 +16,7 @@ header{
   }
   header.scrolled img{
     height: 80vh;
-    animation: animationx 4s ease;
+    animation: animationx 2s ease;
   }
   @media (max-width: 640px) {
     header.scrolled img{
