@@ -52,13 +52,13 @@ export function Footer() {
           color="blue-gray"
           className="font-bold text-sm text-center montserrat-alternates mt-4 sm:mt-0"
         >
-          &copy; 2024 All Rights Reserved By DOT-iT
+          &copy; 2024 All Rights Reserved By Orbit-Upskill
         </Typography>
         <Typography
           color="blue-gray"
           className="font-bold text-sm text-center montserrat-alternates mt-4 sm:mt-0"
         >
-          Developed By <a href="http://md-econozzaman.vercel.app">Econ</a>
+          Developed By <a className="text-[goldenrod]" href="http://md-econozzaman.vercel.app">Econ</a>
         </Typography>
       </div>
     </footer>

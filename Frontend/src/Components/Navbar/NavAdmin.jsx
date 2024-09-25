@@ -28,7 +28,7 @@ export default function NavAdmin() {
             setDisplayComponentRight(
                 <nav className='navbar'>
                    
-                    <Avatar className="avatar" src="econ.jpg" withBorder={true} color="green" alt="avatar" />
+                    <Avatar className="avatar" src="https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" withBorder={true} color="green" alt="avatar" />
                 </nav>
             )
           } else {
@@ -50,7 +50,7 @@ export default function NavAdmin() {
                         All Courses <IoIosArrowUp />
                     </p></Link>
                    
-                    <Avatar className="avatar" src="econ.jpg" withBorder={true} color="green" alt="avatar" />
+                    <Avatar className="avatar" src="https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" withBorder={true} color="green" alt="avatar" />
                 </nav>
             );
           }
@@ -109,19 +109,20 @@ export default function NavAdmin() {
                 <div className="flex flex-col montserrat-alternates-regular gap-y-4 h-full">
                     <div className="flex flex-col gap-3 justify-center items-center text-[green]">
                     <Link to="/profile">
-                        <Avatar src={userInfo?.image} className="border-green-600 border-2" size="md" />
+                        <Avatar src="https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" className="border-green-600 border-2" size="md" />
                     </Link>
                     <h1 className="montserrat-alternates-bold">{userInfo?.name}</h1>
                     {!userInfo && <p>Loading..</p>}
                     </div>
                     <div className="bg-[#cdcecd67] p-5 rounded-lg flex justify-between">
                     <Link to="/dashboard"><h1 className="text-[green] cursor-pointer hover:text-gray-300">Dashboard</h1></Link>
-                    <Link to="/courses"><h1 className="text-[green] cursor-pointer hover:text-gray-300">All Courses</h1></Link>
-                    <h1  className="text-[green] cursor-pointer hover:text-gray-300">Logout</h1>
+                    <Link to="/all-courses"><h1 className="text-[green] cursor-pointer hover:text-gray-300">All Courses</h1></Link>
+                   {/* <h1  className="text-[green] cursor-pointer hover:text-gray-300">Logout</h1>*/}
                     </div>
-                    <Link to="/carts"><h1 className="text-[green] cursor-pointer hover:text-gray-300">Cart</h1></Link>
-                    <Link to="/products"><h1 className="text-[green] cursor-pointer hover:text-gray-300">Products</h1></Link>
-                    <h1 className="text-[green] cursor-pointer hover:text-gray-300">About</h1>
+                    <Link to=""><h1 className="text-[green] cursor-pointer hover:text-gray-300">Home</h1></Link>
+                    <Link to="new-course"><h1 className="text-[green] cursor-pointer hover:text-gray-300">New Course</h1></Link>
+                    <Link to="add-event"><h1 className="text-[green] cursor-pointer hover:text-gray-300">Add Event</h1></Link>
+                    
                 </div>
                 ) : (
                 <div className="flex justify-between px-10">

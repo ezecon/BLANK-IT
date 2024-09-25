@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CourseCard from "../../../Components/PhotoCard/CourseCard";
+import CourseCard from "../Card/CourseCard";
 
 
 export default function AllCoursesAdmin() {

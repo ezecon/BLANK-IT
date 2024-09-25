@@ -11,6 +11,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const courses = await Course.findByIdAndDelete(req.params.id); 
+    res.status(200).json(courses); 
+  } catch (err) {
+    res.status(500).json({ message: 'Error retrieving courses. Please try again.' });
+  }
+});
+
 //find by the url
 router.get('/url/:id', async (req, res) => {
   const id = req.params.id;
