@@ -52,7 +52,7 @@ export function Footer() {
           color="blue-gray"
           className="font-bold text-sm text-center montserrat-alternates mt-4 sm:mt-0"
         >
-          &copy; 2024 All Rights Reserved By Orbit-Upskill
+          &copy; 2024 All Rights Reserved By BLANK-iT
         </Typography>
         <Typography
           color="blue-gray"

@@ -24,10 +24,10 @@ export function HeroSection() {
       <div className=" grid grid-cols-2 absolute inset-0 items-center justify-center p-4 sm:p-8 lg:p-12">
         <div className={`pl-10 sm:pl-5  text-white text-center lg:text-left montserrat-alternates ${isLoading ? '' : 'roll-left'}`}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Orbit-Upskill
+              BLANK-iT
             </h1>
             <p className="text text-xs sm:text-sm md:text-base lg:text-lg mb-6">
-              Place you can trust the most
+              Place you can trust the most for journey
             </p>
             <Link to="all-courses"><Button className="bg-black bg-opacity-60 text-white px-3 py-2 rounded-md text-xs sm:text-sm md:text-base lg:text-lg">
               PURCHASE NOW

@@ -115,7 +115,6 @@ export default function Nav() {
                         <Avatar src="https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" className="border-green-600 border-2" size="md" />
                     </Link>
                     <h1 className="montserrat-alternates-bold">{userInfo?.name}</h1>
-                    {!userInfo && <p>Loading..</p>}
                     </div>
                     <div className="bg-[#cdcecd67] p-5 rounded-lg flex justify-between">
                     <Link to="/dashboard"><h1 className="text-[green] cursor-pointer hover:text-gray-300">Dashboard</h1></Link>
