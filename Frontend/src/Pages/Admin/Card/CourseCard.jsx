@@ -7,7 +7,7 @@ export default function CourseCard({data}) {
 
   const handleDelete = async (id)=>{
     try{
-      const res = await axios.delete(`http://localhost:5000/api/course/${_id}`)
+      const res = await axios.delete(`https://dot-it-server.vercel.app/api/course/${_id}`)
       if(res.status===200){
         toast.success("Course Deleted")
       }

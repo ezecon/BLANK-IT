@@ -11,7 +11,7 @@ export default function AllCoursesAdmin() {
   useEffect(()=>{
     const fetchData = async ()=>{
       try {
-        const res = await axios.get(`http://localhost:5000/api/course`);
+        const res = await axios.get(`https://dot-it-server.vercel.app/api/course`);
   
         if (res.status === 200) {
           setData(res.data)
