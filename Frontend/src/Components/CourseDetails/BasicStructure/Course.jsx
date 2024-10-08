@@ -52,7 +52,7 @@ export default function Course() {
       wNumber: formData.whatsappNumber,
       email: formData.email,
       address: formData.address,
-      course: 'ujrfjg',
+      course: info.name,
     };
   
     try {
